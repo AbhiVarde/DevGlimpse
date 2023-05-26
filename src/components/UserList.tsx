@@ -34,7 +34,7 @@ function UserList({ searchQuery }: UserListProps) {
   }, [searchQuery]);
 
   return (
-    <div className="mx-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+    <div className="mx-2 sm:mx-4 md:mx-4 lg:mx-8 xl:mx-10 2xl:mx-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-8">
       {users.map((user) => (
         <UserCard key={user.id} user={user} />
       ))}

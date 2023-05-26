@@ -17,9 +17,9 @@ function App() {
         <header className="bg-[#153289] py-6">
           <h2 className="text-[#FFD700] text-3xl flex justify-center items-center font-bold">
             <img
-              src="./logo.png"
-              alt="logo"
+              src="/logo.png"
               className="h-8 inline-block align-middle mr-2"
+              alt="logo"
             />
             DEV Glimpse
           </h2>
@@ -28,7 +28,7 @@ function App() {
           </p>
           <SearchForm handleSearch={handleSearch} />
         </header>
-        <div className="container mx-auto px-4 py-8 flex-grow">
+        <div className="container mx-auto px-2 sm:px-4 py-4 sm:py-8 flex-grow">
           <Routes>
             <Route path="/" element={<UserList searchQuery={searchQuery} />} />
             <Route path="/user/:username" element={<UserProfile />} />

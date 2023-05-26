@@ -42,10 +42,14 @@ function UserProfile() {
   }
 
   return (
-    <div className="max-w-md mx-auto bg-black rounded-lg shadow-md overflow-hidden">
-      <img className="w-full" src={user.avatar_url} alt={user.login} />
-      <div className="p-6 text-white text-center">
-        <h2 className="text-[#FFD700] text-2xl font-bold mb-2">{user.login}</h2>
+    <div className="max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl mx-auto bg-black rounded-lg shadow-md overflow-hidden">
+      <img
+        className="w-full h-auto sm:h-48 md:h-56 lg:h-64 object-cover object-center max-w-full"
+        src={user.avatar_url}
+        alt={user.login}
+      />
+      <div className="p-4 text-white text-center">
+        <h2 className="text-[#FFD700] text-xl font-bold mb-2">{user.login}</h2>
         <p className="text-slate-400">{user.bio}</p>
         <p className="mt-4">Followers: {user.followers}</p>
         <p>Following: {user.following}</p>
