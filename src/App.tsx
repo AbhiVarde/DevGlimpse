@@ -6,7 +6,7 @@ import UserList from "./components/UserList";
 
 function App() {
   const [searchQuery, setSearchQuery] = useState("");
-
+  const currentYear = new Date().getFullYear();
   const handleSearch = (query: string) => {
     setSearchQuery(query);
   };
@@ -35,7 +35,8 @@ function App() {
           </Routes>
         </div>
         <footer className="bg-[#153289] text-center text-white py-4">
-          © 2023 AbhiVarde - Made with ❤️ for the people of the internet.
+          © {currentYear} AbhiVarde - Made with ❤️ for the people of the
+          internet.
         </footer>
       </div>
     </Router>
