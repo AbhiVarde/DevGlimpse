@@ -1,4 +1,5 @@
-import { useState, FormEvent } from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface SearchFormProps {
   handleSearch: (query: string) => void;
@@ -6,10 +7,21 @@ interface SearchFormProps {
 
 function SearchForm({ handleSearch }: SearchFormProps) {
   const [searchQuery, setSearchQuery] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
+  const navigate = useNavigate();
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    handleSearch(searchQuery);
+
+    if (searchQuery.trim() !== "") {
+      handleSearch(searchQuery);
+      navigate("/");
+    }
+  };
+
+  const handleSearchQueryChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(e.target.value);
+    setSearchResults([]); // Clear previous search results
   };
 
   return (
@@ -18,7 +30,7 @@ function SearchForm({ handleSearch }: SearchFormProps) {
         <input
           type="text"
           value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
+          onChange={handleSearchQueryChange}
           className="w-full border border-gray-300 rounded-md pl-4 pr-8 py-1 focus:outline-none focus:ring-2 focus:ring-black placeholder:text-gray-500"
           placeholder="Search for a GitHub user..."
         />
@@ -29,6 +41,16 @@ function SearchForm({ handleSearch }: SearchFormProps) {
           Search
         </button>
       </div>
+      {searchResults.length > 0 && (
+        <div>
+          <h2>Search Results:</h2>
+          <ul>
+            {searchResults.map((result, id) => (
+              <li key={id}>{result}</li>
+            ))}
+          </ul>
+        </div>
+      )}
     </form>
   );
 }
