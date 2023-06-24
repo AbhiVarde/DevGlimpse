@@ -13,7 +13,7 @@ function App() {
 
   return (
     <Router>
-      <div className="flex flex-col min-h-screen">
+      <div className="flex flex-col min-h-screen font-Nunito">
         <header className="bg-[#153289] py-6">
           <h2 className="text-[#FFD700] text-3xl flex justify-center items-center font-bold">
             <img
